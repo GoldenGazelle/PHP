@@ -5,20 +5,11 @@ session_start();
 $lastPage = $_SERVER['REQUEST_URI'];
 setcookie('lastPage', $lastPage);
 //Если сессия создана, то поприветствовать пользователя и подключить файл logaut.php с кнопкой Выйти
-if(!empty($_SESSION['autorisation']) and $_SESSION['autorisation']){
+if(!empty($_SESSION['autorisation']) and $_SESSION['autorisation'])
     echo "Добро пожаловать, ". $_COOKIE['name'] .". Вы авторизованы. <br>";
-    if(isset($_POST['submit'])){
-        unset($_SESSION['autorisation']);
-        session_destroy();
-        header("Location: autorisation.php");
-    }
-}
 else
     header("Location: autorisation.php");
 ?>
-<h2>B</h2>
-На страницу  <a href="index.php"><"index.php"></a><br><br>
-На страницу <a href="A.php"><"a.php"></a><br><br>
-<form action="" method="post">
-    <input name="submit" type="submit" value="Выйти">
-</form>
+<h2>CHOOSE</h2>
+На страницу  <a href="A.php"><"A.php"></a><br><br>
+На страницу <a href="B.php"><"B.php"></a><br><br>

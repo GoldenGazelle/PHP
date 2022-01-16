@@ -2,11 +2,14 @@
 header("Content-type: text/html; charset=utf-8");
 //Если нажата кнопка Войти ...
 if(isset($_POST['submit'])){
-        session_start();
-        $name = $_POST['name'];
-        setcookie('name', $name);
-        $_SESSION['autorisation'] = true;
+    session_start();
+    $name = $_POST['name'];
+    setcookie('name', $name);
+    $_SESSION['autorisation'] = true;
+    if(isset($_COOKIE['lastPage']))
         header("Location: ". $_COOKIE['lastPage']);
+    else
+        header("Location: choose.php");
 }
 ?>
 <h3>Cтраница авторизации</h3>
