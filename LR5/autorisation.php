@@ -12,6 +12,9 @@
             header("Location: choose.php");
 }
 ?>
+<head>
+    <link rel="stylesheet" href=".css">
+</head>
 <h3>Cтраница авторизации</h3>
 <form action="" method="post">
     Логин: <input type="text" name="name"><br>

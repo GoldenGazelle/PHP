@@ -17,6 +17,9 @@
     else
         header("Location: autorisation.php");
 ?>
+<head>
+    <link rel="stylesheet" href=".css">
+</head>
 <h2>A</h2>
 На страницу  <a href="index.php"><"index.php"></a><br><br>
 На страницу <a href="B.php"><"b.php"></a><br><br>
