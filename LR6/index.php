@@ -9,6 +9,9 @@ function upload_file($file) {
     else
         echo 'Ошибка загрузки файла<br>';
 }
+
+if (!file_exists('img/'))
+    mkdir('img/')
 ?>
 <!DOCTYPE html>
 <html>
