@@ -3,6 +3,7 @@ require __DIR__ . '/functions.php';
 if (isset($_FILES['file']) and strpos($_FILES['file']['name'], '.jpg')) {
     upload_file($_FILES['file']);
 }
+unset($_FILES['file']);
 $images = get_images();
 ?>
 <!DOCTYPE html>
@@ -15,6 +16,6 @@ $images = get_images();
 <form method="post" enctype="multipart/form-data"> <input type="file" name="file" />
     <input type="submit" value="Загрузить файл!" />
 </form>
-<?php show_images($images); ?>
+<?php if ($images) show_images($images); ?>
 </body>
 </html>

@@ -13,23 +13,26 @@ function send_query($query) {
     mysql_connect('localhost:3306', 'root', '');
     mysql_select_db('php_labs');
     $result = mysql_query($query);
-    if ($result !== true) {
-        try {
-            $rows = array();
-            while($row = mysql_fetch_assoc($result))
-                $rows[] = $row;
-            return $rows;
-        }
-        catch (Exception $e) {
-            return;
-        }
+    if (gettype($result) == 'boolean') {
+        return NULL;
     }
+    if (mysql_num_rows($result) != 0) {
+        $rows = array();
+        while($row = mysql_fetch_assoc($result))
+            $rows[] = $row;
+        return $rows;
+    }
+    else
+        return;
 }
 
 function get_images() {
     $pictures = send_query("SELECT * FROM pictures");
-    usort($pictures, "custom_sort");
-    return $pictures;
+    if ($pictures) {
+        usort($pictures, "custom_sort");
+        return $pictures;
+    }
+    else return NULL;
 }
 
 function show_images($images) {
